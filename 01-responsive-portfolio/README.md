@@ -14,6 +14,3 @@
 Follow Me on Instagram . [Hendra](https://www.instagram.com/hendra_infotech)
 
 ![responsive bottom navigation](/preview.png)
-=======
-# web-simple-project
->>>>>>> c21117a29caa3d7634ffd2f01668454685baacfb

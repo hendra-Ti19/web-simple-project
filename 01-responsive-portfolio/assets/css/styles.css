@@ -1,0 +1,455 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3rem;
+
+  /*========== Colors ==========*/
+  --hue: 174;
+  --sat: 63%;
+  --first-color: hsl(var(--hue), var(--sat), 40%);
+  --first-color-alt: hsl(var(--hue), var(--sat), 36%);
+  --title-color: hsl(var(--hue), 12%, 15%);
+  --text-color: hsl(var(--hue), 8%, 35%);
+  --body-color: hsl(var(--hue), 100%, 99%);
+  --container-color: #FFF;
+  --primary-color : rgb(57,174,162) ;
+  --secondary-color : rgba(233, 233, 233, 0.8);
+
+  /*========== Font and typography ==========*/
+  --body-font: 'Open Sans', sans-serif;
+  --h1-font-size: 1.5rem;
+  --normal-font-size: .938rem;
+  --tiny-font-size: .625rem;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 868px) {
+  :root {
+    --h1-font-size: 2.25rem;
+    --normal-font-size: 1rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  /* background-color: var(--body-color); */
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.section {
+  padding: 4.5rem 0 2rem;
+}
+
+.section__title {
+  font-size: var(--h1-font-size);
+  color: var(--title-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.section__height {
+  height: 100vh;
+}
+
+/*=============== LAYOUT ===============*/
+.container {
+  max-width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/*=============== HEADER ===============*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--container-color);
+  z-index: var(--z-fixed);
+  transition: .4s;
+
+  border-bottom: 3px solid rgba(57,174,162, 0.1);
+}
+
+/*=============== NAV ===============*/
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__img {
+  width: 32px;
+  border-radius: 50%;
+}
+
+.nav__logo {
+  color: var(--title-color);
+  font-weight: 600;
+}
+
+@media screen and (max-width: 767px) {
+  .nav__menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: var(--container-color);
+    box-shadow: 0 -1px 12px hsla(var(--hue), var(--sat), 15%, 0.15);
+    width: 100%;
+    height: 4rem;
+    padding: 0 1rem;
+    display: grid;
+    align-content: center;
+    border-radius: 1.25rem 1.25rem 0 0;
+    transition: .4s;
+  }
+}
+
+.nav__list, 
+.nav__link {
+  display: flex;
+}
+
+.nav__link {
+  flex-direction: column;
+  align-items: center;
+  row-gap: 4px;
+  color: var(--title-color);
+  font-weight: 600;
+}
+
+.nav__list {
+  justify-content: space-around;
+}
+
+.nav__name {
+  font-size: var(--tiny-font-size);
+  /* display: none;*/ /* Minimalist design, hidden labels */
+}
+
+.nav__icon {
+  font-size: 1.5rem;
+}
+
+/*Active link*/
+.active-link {
+  position: relative;
+  color: var(--first-color);
+  transition: .3s;
+}
+
+/* Minimalist design, active link */
+/* .active-link::before{
+  content: '';
+  position: absolute;
+  bottom: -.5rem;
+  width: 4px;
+  height: 4px;
+  background-color: var(--first-color);
+  border-radius: 50%;
+} */
+
+/* Change background header */
+.scroll-header {
+  box-shadow: 0 1px 12px hsla(var(--hue), var(--sat), 15%, 0.15);
+}
+
+/*=============== MEDIA QUERIES ===============*/
+/* For small devices */
+/* Remove if you choose, the minimalist design */
+@media screen and (max-width: 320px) {
+  .nav__name {
+    display: none;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 576px) {
+  .nav__list {
+    justify-content: center;
+    column-gap: 3rem;
+  }
+}
+
+
+@media screen and (min-width: 767px) {
+  body {
+    margin: 0;
+  }
+  .section {
+    padding: 7rem 0 2rem;
+  }
+  .nav {
+    height: calc(var(--header-height) + 1.5rem); /* 4.5rem */
+  }
+  /* .nav__img {
+    /* display: none; */
+  /*} */
+  .nav__icon {
+    display: none;
+  }
+  .nav__name {
+    font-size: var(--normal-font-size);
+    /* display: block; */ /* Minimalist design, visible labels */
+  }
+  .nav__link:hover {
+    color: var(--first-color);
+  }
+
+  /* First design, remove if you choose the minimalist design */
+  .active-link::before {
+    content: '';
+    position: absolute;
+    bottom: -.75rem;
+    width: 4px;
+    height: 4px;
+    background-color: var(--first-color);
+    border-radius: 50%;
+  }
+
+  /* Minimalist design  */
+  /* .active-link::before{
+      bottom: -.75rem;
+  } */
+}
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+/* content */
+#home img{
+  width: 35%;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 1px 1px 5px grey;
+  margin-bottom: 10px;
+}
+#home{
+  background-color:#26a69930;
+  margin: 0;
+  text-align: center;
+}
+#home hr{
+  width: 40%;
+  margin: 20px auto;
+  background-color: var(--container-color);
+  border: 2px solid var(--container-color);
+
+  display: block;
+  box-shadow: 0 0 5px rgba(128, 128, 128, 0.315);
+}
+#home .ket p{
+  margin-top: 7px;
+  font-size: 13pt;
+}
+
+
+
+hr.menu{
+  width: 5%;
+  margin: auto;
+  margin-bottom: 10px;
+}
+.container-about{
+  padding: 10px;
+  text-align: justify;
+  clear: both;
+}
+.container-about .besar::first-letter{
+  font-size: 32pt;
+  float: left;
+  font-weight: bold;
+  margin-top: -10px;
+  margin-right: 5px;
+}
+
+#skills .kotak{
+  width: 80%;
+  height: 20pt;
+  border: 1px solid white;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 5pt;
+  box-shadow: 0 0 5px var(--primary-color);
+}
+.skill-ket{
+  text-align: center;
+  color: lightseagreen;
+  font-size: 8pt;
+}
+#skills .kotak p{
+  font-size: 10pt !important;
+  margin: auto;
+  display: inline-block;
+  margin-left: 5pt;
+  color: rgb(65, 61, 61);
+}
+#skills .html{
+  background-image: linear-gradient(to right, rgba(218, 80, 30, 0.3) 95%, var(--secondary-color) 5%);
+}
+#skills .css{
+  background-image: linear-gradient(to right, rgba(61, 164, 199, 0.3) 85%, var(--secondary-color) 15%);
+}
+#skills .js{
+  background-image: linear-gradient(to right, rgba(218, 218, 29, 0.3) 90%, var(--secondary-color) 10%);
+}
+#skills .php{
+  background-image: linear-gradient(to right, rgba(30, 30, 233, 0.3) 100%, var(--secondary-color) 0%);
+}
+#skills .boostrap{
+  background-image: linear-gradient(to right, rgba(196, 31, 196, 0.3) 100%, var(--secondary-color) 0%);
+}
+#skills .vue{
+  background-image: linear-gradient(to right, rgba(32, 178, 171, 0.3) 75%, var(--secondary-color) 25%);
+}
+#skills .laravel{
+  background-image: linear-gradient(to right, rgba(255, 68, 0, 0.3) 80%, var(--secondary-color) 20%);
+}
+#skills .ci{
+  background-image: linear-gradient(to right, rgba(255, 0, 0, 0.3) 80%, var(--secondary-color) 20%);
+}
+
+#skills .html:hover{
+  background-image: linear-gradient(to right, rgba(218, 80, 30, 1) 95%, var(--secondary-color) 5%);
+}
+#skills .css:hover{
+  background-image: linear-gradient(to right, rgba(61, 164, 199, 1) 85%, var(--secondary-color) 15%);
+}
+#skills .js:hover{
+  background-image: linear-gradient(to right, rgba(218, 218, 29, 1) 90%, var(--secondary-color) 10%);
+}
+#skills .php:hover{
+  background-image: linear-gradient(to right, rgba(30, 30, 233, 1) 100%, var(--secondary-color) 0%);
+}
+#skills .php:hover{
+  background-image: linear-gradient(to right, rgba(30, 30, 233, 1) 100%, var(--secondary-color) 0%);
+}
+#skills .boostrap:hover{
+  background-image: linear-gradient(to right, rgba(196, 31, 196,1) 100%, var(--secondary-color) 0%);
+}
+#skills .vue:hover{
+  background-image: linear-gradient(to right, rgba(32, 178, 171,1) 75%, var(--secondary-color) 25%);
+}
+#skills .laravel:hover{
+  background-image: linear-gradient(to right, rgba(255, 68, 0,1) 80%, var(--secondary-color) 20%);
+}
+#skills .ci:hover{
+  background-image: linear-gradient(to right, rgba(255, 0, 0,1) 80%, var(--secondary-color) 20%);
+}
+
+
+/*  */
+#portfolio .col{
+  display: inline-block;
+  width: 100%;
+  height: 150px;
+  background-color: rgba(128, 128, 128, 0.15);
+  box-shadow: 2px 1px 7px rgba(32, 178, 171, 0.3);
+  margin: 5px;
+  padding: 5px;
+  padding-top: 20px;
+  border-radius: 10px;
+}
+#portfolio img{
+  width: 40%;
+  height: 100px;
+  float: left;
+}
+#portfolio .row{
+  clear: both;
+}
+/*  */
+#contactme form{
+  width: 90%;
+  margin: auto;
+}
+#contactme input, label, textarea{
+  display: block;
+  margin: 5px;
+  width: 100%;
+  border-radius: 5px;
+  border-color: transparent;
+}
+#contactme input[type="text"]{
+  height: 30pt;
+}
+#contactme input[type="submit"]{
+  margin-top: 20px;
+  border-radius: 5px;
+  background-color: rgb(23, 192, 184);
+  padding: 5px;
+  color: white;
+}
+#contactme input[type="submit"]:hover{
+  background-color: rgb(25, 128, 122);
+}
+/* ------------------------ */
+
+@media screen and ( max-width: 650px) {
+  #home{
+    height: 450px;
+  }
+}
+@media screen and ( min-width: 651px) {
+  #home img{
+    width: 20%;
+  }
+  #home hr {
+    width: 20%;
+  }
+  #home{
+    height: 700px;
+  }
+  .container-about{
+    display: flex;
+  
+  }
+  .container-about .kiri{
+    flex: auto;
+    padding: 20px;
+  }
+  .container-about .kanan{
+    flex: auto;
+    padding: 20px;
+  }
+}

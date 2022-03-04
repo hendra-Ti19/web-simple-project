@@ -1,0 +1,19 @@
+<<<<<<< HEAD
+# My portfolio
+## Responsive Bottom Navigation Bar
+### [Follow Me On Instagram]()
+#### Responsive Bottom Navigation Bar
+
+- Lower navigation bar using HTML, CSS and JavaScript.
+- First design with labels in the navigation bar.
+- Second design with points in the navigation bar.
+- Smooth scrolling in each section.
+- Developed first with the Mobile First methodology, then for desktop.
+- Compatible with all mobile devices and with a beautiful and pleasant user interface.
+
+Follow Me on Instagram . [Hendra](https://www.instagram.com/hendra_infotech)
+
+![responsive bottom navigation](/preview.png)
+=======
+# web-simple-project
+>>>>>>> c21117a29caa3d7634ffd2f01668454685baacfb
